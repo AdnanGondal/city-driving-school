@@ -1,15 +1,17 @@
 import Head from 'next/head'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import TestimonialCard from '@components/Testimonial'
 import Image from 'next/image'
+import testimonials from "../public/testimonials.json"
 
 export default function Home() {
   return (
     <div className="container">
-          <Head>
+      <Head>
         <title>City Driving School</title>
-        <meta name="description" content="City Driving School - Teaching and Safety is our priority. South London's premier driving school, offering safe, comprehensive and professional driving lessons for beginners and advanced learners."/>
-        <meta name="keywords" content="City Driving School, South London, Driving Lessons, Driving Instructor, Learn Driving, Teaching, Safety, Driving Teacher, Road Safety"/>
+        <meta name="description" content="City Driving School - Teaching and Safety is our priority. South London's premier driving school, offering safe, comprehensive and professional driving lessons for beginners and advanced learners." />
+        <meta name="keywords" content="City Driving School, South London, Driving Lessons, Driving Instructor, Learn Driving, Teaching, Safety, Driving Teacher, Road Safety" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -70,6 +72,25 @@ export default function Home() {
           We cover everything from the proper use of lights and dealing with glare, to perception of speed and
           distance in the reduced visibility of the night.
         </p>
+
+        <h2>Testimonials</h2>
+
+        {testimonials.map((testimonial, index) => (
+          <TestimonialCard
+            key={index}
+            name={testimonial.name}
+            text={testimonial.text}
+            picture={testimonial.picture}
+          />
+        ))}
+
+        <h2>Contact us</h2>
+
+        <p>Email: <a href="mailto:info@citydrivingschool.uk">info@citydrivingschool.uk</a></p>
+        <p>Phone: <a href="tel:07988185961">07988 815961</a></p>
+
+
+
 
       </main>
 
