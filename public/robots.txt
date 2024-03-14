@@ -1,0 +1,6 @@
+# Allow all bots complete access
+User-agent: *
+Disallow:
+
+# Sitemap reference
+Sitemap: https://citydrivingschool.uk/sitemap.xml
