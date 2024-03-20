@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Header from '@components/Header'
 import Footer from '@components/Footer'
 import TestimonialCard from '@components/Testimonial'
 import Image from 'next/image'
 import testimonials from "../public/testimonials.json"
+import Navbar from '@components/Navbar'
 
 export default function Home() {
   return (
@@ -32,14 +32,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <Image
-          src="/logo.jpeg"
-          alt="City driving school logo, a blue steering wheel."
-          width={200}
-          height={80}
-        />
+        <Navbar></Navbar>
 
-        <h1>Welcome to City Driving School</h1>
+
+        <h1 className='color-red'>Welcome to City Driving School</h1>
 
         <section>
           <Image
