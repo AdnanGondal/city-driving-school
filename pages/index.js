@@ -7,7 +7,7 @@ import Navbar from '@components/Navbar'
 
 export default function Home() {
   return (
-    <div className="container">
+    <div className="container mx-auto m-0 w-full px-0 md:px-0">
       <Head>
         <title>City Driving School</title>
         <meta name="description" content="City Driving School - Teaching and Safety is our priority. South London's premier driving school, offering safe, comprehensive and professional driving lessons for beginners and advanced learners." />
@@ -34,23 +34,27 @@ export default function Home() {
       <main>
         <Navbar></Navbar>
 
-
-        <h1 className='color-red'>Welcome to City Driving School</h1>
-
-        <section>
-          <Image
-            src="/city-driving-school-1.jpeg"
-            alt="A happy student who has passed his exam"
-            width={400}
-            height={400}
-          />
-
-          <p>
-            City Driving School, based in South London, offers top-quality, affordable driving lessons to students of all levels.
-            From basic driving lessons for beginners to advanced road training for skilled drivers, we provide a comfortable,
-            safe, and effective learning experience.
-          </p>
+        <section className="flex flex-col md:flex-row items-center justify-center h-screen w-full bg-blue-50 overflow-hidden">
+          <div className="w-full md:w-1/4 object-contain mx-auto rounded-xl overflow-hidden p-2">
+            <Image
+              src="/city-driving-school-1.jpeg"
+              alt="A happy student who has passed his exam"
+              layout="responsive"
+              width={400}
+              height={400}
+              className="rounded-xl"
+            />
+          </div>
+          <div className="w-full md:w-1/2 text-center md:text-left p-4">
+            <h2 className="text-2xl text-blue-800 mb-4">Welcome to City Driving School</h2>
+            <p>
+              City Driving School, based in South London, offers top-quality, affordable driving lessons to students of all levels.
+              From basic driving lessons for beginners to advanced road training for skilled drivers, we provide a comfortable,
+              safe, and effective learning experience.
+            </p>
+          </div>
         </section>
+
 
 
 
@@ -96,17 +100,19 @@ export default function Home() {
         </section>
 
 
-        <section>
-          <h2>Testimonials</h2>
+        <section className="px-6 py-4">
+          <h2 className="text-xl font-bold mb-4">Testimonials</h2>
 
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              name={testimonial.name}
-              text={testimonial.text}
-              picture={testimonial.picture}
-            />
-          ))}
+          <div className="flex flex-wrap justify-around items-stretch">
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard
+                key={index}
+                name={testimonial.name}
+                text={testimonial.text}
+                picture={testimonial.picture}
+              />
+            ))}
+          </div>
         </section>
 
         <section>
