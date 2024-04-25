@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 const ImageSlider = ({ images }) => {
     const IMAGE_CHANGE_INTERVAL = 10000;
     const FADE_OPACITY = 0.09;
-    const FADE_TRANSITION_TIME = 700;
+    const FADE_TRANSITION_TIME = 1000;
 
     const [currentImageIndex, setCurrentImageIndex] = useState(() => Math.floor(Math.random() * images.length));
     const [opacity, setOpacity] = useState(1);
