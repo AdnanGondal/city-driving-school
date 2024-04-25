@@ -1,15 +1,15 @@
 import Head from 'next/head'
 import Footer from '@components/Footer'
 import TestimonialCard from '@components/Testimonial'
-import Image from 'next/image'
+import { studentImages } from 'utils/data'
 import testimonials from "../public/testimonials.json"
 import Navbar from '@components/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardTeacher, faClock, faTag, faCar, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core'
+import ImageSlider from '@components/ImageSlider'
 
 library.add(faChalkboardTeacher, faClock, faTag, faCar, faEnvelope, faCar)
-
 
 export default function Home() {
   return (
@@ -41,16 +41,12 @@ export default function Home() {
         <Navbar />
 
         <section className="flex flex-col md:flex-row items-center justify-center h-auto w-full bg-blue-50 overflow-hidden">
-          <div className="w-full md:w-1/4 object-contain mx-auto md:mx-10 rounded-xl overflow-hidden p-2 md:py-24">
-            <Image
-              src="/city-driving-school-1.jpeg"
-              alt="A happy student who has passed his exam"
-              layout="responsive"
-              width={400}
-              height={400}
-              className="rounded-xl"
-            />
+          <div
+            className="w-full md:w-1/4 object-contain mx-auto md:mx-10 rounded-xl overflow-hidden p-2 md:py-24"
+          >
+            <ImageSlider images={studentImages} />
           </div>
+
           <div className="w-full md:w-1/2 text-center md:text-left p-2">
             <h1 className="text-3xl font-bold text-blue-600 mb-4">Welcome to City Driving School</h1>
             <p className='text-gray-600 md:text-xl'>
@@ -65,13 +61,13 @@ export default function Home() {
           <h2 className="text-2xl text-blue-600 font-bold md:text-3xl mb-4">Why Choose City Driving School?</h2>
           <ul className="text-gray-600 space-y-2">
             <li className="flex items-center justify-center">
-              <span className="text-lg"><FontAwesomeIcon icon={faChalkboardTeacher} className="text-red-600 mr-2" />Experienced and patient driving instructor</span>
+              <span className="text-lg"><FontAwesomeIcon icon={faChalkboardTeacher} className="text-red-600 mr-2" />Experienced and patient driving instructors</span>
             </li>
             <li className="flex items-center justify-center">
               <span className="text-lg"><FontAwesomeIcon icon={faClock} className="text-red-600 mr-2" />Flexible hours including weekends and evenings</span>
             </li>
             <li className="flex items-center justify-center">
-              <span className="text-lg"><FontAwesomeIcon icon={faTag} className="text-red-600 mr-2" />Competitive rates with discounts for block bookings</span>
+              <span className="text-lg"><FontAwesomeIcon icon={faTag} className="text-red-600 mr-2" />Competitive rates</span>
             </li>
             <li className="flex items-center justify-center">
               <span className="text-lg"><FontAwesomeIcon icon={faCar} className="text-red-600 mr-2" />Both automatic and manual cars available</span>
@@ -102,11 +98,6 @@ export default function Home() {
                 <p className='text-gray-600'>Our motorway lessons are designed to give drivers confidence in motorway driving. You'll learn about safe distances, proper use of lanes, joining and leaving motorways, overtaking, and dealing with complex multi-lane situations.</p>
               </div>
 
-              <div className="p-4">
-                <img src="https://images.unsplash.com/photo-1514941914047-6da56d12dc22?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Night Drive Lessons" className="w-full h-40 object-cover mb-4 rounded-md" />
-                <h3 className="text-lg text-red-600 font-bold mb-2">Night Drive Lessons</h3>
-                <p className='text-gray-600'>Driving in the dark can be daunting but with our night drive lessons, you'll become a pro in no time. We cover everything from the proper use of lights and dealing with glare, to perception of speed and distance in the reduced visibility of the night.</p>
-              </div>
             </div>
           </div>
         </section>
@@ -135,26 +126,30 @@ export default function Home() {
         </section>
 
 
-
-        <section className="px-6 py-4 text-center bg-blue-50">
-          <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-4">Contact us</h2>
-          <div className="flex justify-center items-center mb-6">
-            <div className="w-1/2">
-              <table className="mx-auto">
-                <tbody>
-                  <tr>
-                    <td className="text-right pr-2 text-2xl"><FontAwesomeIcon icon={faEnvelope} className="mr-2" /></td>
-                    <td className="text-left text-xl pl-2"><a href="mailto:info@citydrivingschool.uk">info@citydrivingschool.uk</a></td>
-                  </tr>
-                  <tr>
-                    <td className="text-right pr-2 text-2xl"><FontAwesomeIcon icon={faPhone} className="mr-2" /> </td>
-                    <td className="text-left text-xl pl-2"><a href="tel:07988185961">07988815961</a></td>
-                  </tr>
-                </tbody>
-              </table>
+        <section className="px-6 py-8 text-center bg-blue-50">
+          <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-8">Contact us</h2>
+          <div className="flex flex-row justify-center items-center">
+            <div className="flex flex-col items-center mb-4 md:mb-0 md:mr-4">
+              <div className="rounded-full bg-white p-3 shadow-md mb-8">
+                <a href="mailto:info@citydrivingschool.uk"><FontAwesomeIcon icon={faEnvelope} className="text-blue-600 text-3xl" /></a>
+              </div>
+              <div className="rounded-full bg-white p-3 shadow-md mb-8">
+                <a href="tel:07879391886"><FontAwesomeIcon icon={faPhone} className="text-blue-600 text-3xl" /></a>
+              </div>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="bg-white shadow-md p-4 rounded-lg mb-8">
+                <p className="text-xl"><a href="mailto:info@citydrivingschool.uk">info@citydrivingschool.uk</a></p>
+              </div>
+              <div className="bg-white shadow-md p-4 rounded-lg mb-8">
+                <p className="text-xl"><a href="tel:07879391886">07879 391886</a></p>
+              </div>
             </div>
           </div>
         </section>
+
+
+
 
 
       </main>
