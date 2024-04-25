@@ -2,8 +2,12 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 
 const ImageSlider = ({ images }) => {
-    const INTERVAL = 5000;
+    const IMAGE_CHANGE_INTERVAL = 10000;
+    const FADE_OPACITY = 0.09;
+    const FADE_TRANSITION_TIME = 700;
+
     const [currentImageIndex, setCurrentImageIndex] = useState(() => Math.floor(Math.random() * images.length));
+    const [opacity, setOpacity] = useState(1);
     const intervalRef = useRef(null);
 
     useEffect(() => {
@@ -12,29 +16,49 @@ const ImageSlider = ({ images }) => {
         return () => clearInterval(intervalRef.current);
     }, [images]);
 
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setOpacity(FADE_OPACITY);
+            setTimeout(() => {
+                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+                setOpacity(1);
+            }, FADE_TRANSITION_TIME);
+        }, IMAGE_CHANGE_INTERVAL);
+
+        return () => clearTimeout(timeout);
+    }, [currentImageIndex]);
+
     const startInterval = () => {
         clearInterval(intervalRef.current);
         intervalRef.current = setInterval(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, INTERVAL);
+            setOpacity(FADE_OPACITY);
+            setTimeout(() => {
+                setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+                setOpacity(1);
+            }, FADE_TRANSITION_TIME);
+        }, IMAGE_CHANGE_INTERVAL);
     };
 
     const handleClick = () => {
-        console.log(images[currentImageIndex])
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        startInterval();
+        setOpacity(FADE_OPACITY);
+        setTimeout(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+            setOpacity(1);
+            startInterval();
+        }, FADE_TRANSITION_TIME);
     };
 
     return (
-        <Image
-            onClick={handleClick}
-            src={images[currentImageIndex]}
-            alt="A happy student who has passed their exam"
-            className="rounded-xl"
-            style={{ width: '100%', height: 'auto' }}
-            height={400}
-            width={400}
-        />
+        <div onClick={handleClick} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+            <Image
+                src={images[currentImageIndex]}
+                alt="A happy student who has passed their exam"
+                className="rounded-xl"
+                style={{ width: '100%', height: 'auto' }}
+                height={400}
+                width={400}
+            />
+        </div>
     );
 };
 
