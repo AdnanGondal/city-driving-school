@@ -5,7 +5,7 @@ export default function Navbar() {
         <nav className="flex flex-wrap justify-center w-full p-4">
             <div className="w-48 md:w-64 lg:w-1/4">
                 <Image
-                    src="/logo.jpeg"
+                    src="/logo.png"
                     alt="City driving school logo, a blue steering wheel."
                     layout='responsive'
                     width={100}

@@ -1,15 +1,15 @@
 import Head from 'next/head'
 import Footer from '@components/Footer'
 import TestimonialCard from '@components/Testimonial'
-import Image from 'next/image'
+import { studentImages } from 'utils/data'
 import testimonials from "../public/testimonials.json"
 import Navbar from '@components/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardTeacher, faClock, faTag, faCar, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core'
+import ImageSlider from '@components/ImageSlider'
 
 library.add(faChalkboardTeacher, faClock, faTag, faCar, faEnvelope, faCar)
-
 
 export default function Home() {
   return (
@@ -41,16 +41,12 @@ export default function Home() {
         <Navbar />
 
         <section className="flex flex-col md:flex-row items-center justify-center h-auto w-full bg-blue-50 overflow-hidden">
-          <div className="w-full md:w-1/4 object-contain mx-auto md:mx-10 rounded-xl overflow-hidden p-2 md:py-24">
-            <Image
-              src="/city-driving-school-1.jpeg"
-              alt="A happy student who has passed his exam"
-              layout="responsive"
-              width={400}
-              height={400}
-              className="rounded-xl"
-            />
+          <div
+            className="w-full md:w-1/4 object-contain mx-auto md:mx-10 rounded-xl overflow-hidden p-2 md:py-24"
+          >
+            <ImageSlider images={studentImages} />
           </div>
+
           <div className="w-full md:w-1/2 text-center md:text-left p-2">
             <h1 className="text-3xl font-bold text-blue-600 mb-4">Welcome to City Driving School</h1>
             <p className='text-gray-600 md:text-xl'>
