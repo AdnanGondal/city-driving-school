@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 const ImageSlider = ({ images }) => {
     const IMAGE_CHANGE_INTERVAL = 10000;
     const FADE_OPACITY = 0.09;
-    const FADE_TRANSITION_TIME = 1000;
+    const FADE_TRANSITION_TIME = 500;
 
     const [currentImageIndex, setCurrentImageIndex] = useState(() => Math.floor(Math.random() * images.length));
     const [opacity, setOpacity] = useState(1);
@@ -39,24 +39,16 @@ const ImageSlider = ({ images }) => {
         }, IMAGE_CHANGE_INTERVAL);
     };
 
-    const handleClick = () => {
-        setOpacity(FADE_OPACITY);
-        setTimeout(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-            setOpacity(1);
-            startInterval();
-        }, FADE_TRANSITION_TIME);
-    };
 
     return (
-        <div onClick={handleClick} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+        <div style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
             <Image
                 src={images[currentImageIndex]}
                 alt="A happy student who has passed their exam"
                 className="rounded-xl"
                 style={{ width: '100%', height: 'auto' }}
-                height={400}
-                width={400}
+                height={500}
+                width={500}
             />
         </div>
     );
