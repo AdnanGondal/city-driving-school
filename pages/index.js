@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardTeacher, faClock, faTag, faCar, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import ImageSlider from '@components/ImageSlider'
+import FloatingWhatsapp from '@components/FloatingWhatsapp'
 
 library.add(faChalkboardTeacher, faClock, faTag, faCar, faEnvelope, faCar)
 
@@ -18,7 +19,6 @@ export default function Home() {
         <title>City Driving School</title>
         <meta name="description" content="City Driving School - Teaching and Safety is our priority. South London's premier driving school, offering safe, comprehensive and professional driving lessons for beginners and advanced learners." />
         <meta name="keywords" content="City Driving School, South London, Driving Lessons, Driving Instructor, Learn Driving, Teaching, Safety, Driving Teacher, Road Safety" />
-        <link rel="icon" href="/favicon.ico" />
         <script type="application/ld+json">
           {`
         {
@@ -42,12 +42,12 @@ export default function Home() {
 
         <section className="flex flex-col md:flex-row items-center justify-center h-auto w-full bg-blue-50 overflow-hidden">
           <div
-            className="w-full md:w-1/4 object-contain mx-auto md:mx-10 rounded-xl overflow-hidden p-2 md:py-24"
+            className="w-full md:w-1/4 object-contain mx-auto md:mx-10 rounded-xl overflow-hidden p-2 pb-3 md:py-24 md:my-2"
           >
             <ImageSlider images={studentImages} />
           </div>
 
-          <div className="w-full md:w-1/2 text-center md:text-left p-2">
+          <div className="w-full md:w-1/2 text-center md:text-left p-2 pb-10">
             <h1 className="text-3xl font-bold text-blue-600 mb-4">Welcome to City Driving School</h1>
             <p className='text-gray-600 md:text-xl'>
               City Driving School, based in South London, offers top-quality, affordable driving lessons to students of all levels.
@@ -57,27 +57,27 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="p-4 md:p-20 text-center">
-          <h2 className="text-2xl text-blue-600 font-bold md:text-3xl mb-4">Why Choose City Driving School?</h2>
+        <section className="p-4 md:p-20 text-center md:pb-5">
+          <h2 className="text-2xl text-blue-600 font-bold md:text-3xl md:py-10">Why Choose City Driving School?</h2>
           <ul className="text-gray-600 space-y-2">
-            <li className="flex items-center justify-center">
-              <span className="text-lg"><FontAwesomeIcon icon={faChalkboardTeacher} className="text-red-600 mr-2" />Experienced and patient driving instructors</span>
+            <li className="flex items-center justify-center pb-3">
+              <span className="text-xl"><FontAwesomeIcon icon={faChalkboardTeacher} className="text-red-600 mr-2" />Experienced and patient driving instructors</span>
             </li>
-            <li className="flex items-center justify-center">
-              <span className="text-lg"><FontAwesomeIcon icon={faClock} className="text-red-600 mr-2" />Flexible hours including weekends and evenings</span>
+            <li className="flex items-center justify-center pb-3">
+              <span className="text-xl"><FontAwesomeIcon icon={faClock} className="text-red-600 mr-2" />Flexible hours including weekends and evenings</span>
             </li>
-            <li className="flex items-center justify-center">
-              <span className="text-lg"><FontAwesomeIcon icon={faTag} className="text-red-600 mr-2" />Competitive rates</span>
+            <li className="flex items-center justify-center pb-3">
+              <span className="text-xl"><FontAwesomeIcon icon={faTag} className="text-red-600 mr-2" />Competitive rates</span>
             </li>
-            <li className="flex items-center justify-center">
-              <span className="text-lg"><FontAwesomeIcon icon={faCar} className="text-red-600 mr-2" />Both automatic and manual cars available</span>
+            <li className="flex items-center justify-center pb-3">
+              <span className="text-xl"><FontAwesomeIcon icon={faCar} className="text-red-600 mr-2" />Automatic cars available</span>
             </li>
           </ul>
         </section>
 
-        <section className="flex justify-center items-center">
+        <section className="flex justify-center items-center h-full md:h-screen">
           <div className="rounded-lg shadow-lg p-8 max-w-4xl bg-blue-50">
-            <h2 className="text-2xl  md:text-3xl text-blue-600 font-bold mb-6">Our Driving Courses</h2>
+            <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-6">Our Driving Courses</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               <div className="p-4">
@@ -102,15 +102,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-6 py-4 text-center mt-8">
+        <section className="px-6 py-4 text-center mt-8 h-full md:h-screen flex flex-col justify-center items-center">
           <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-4">Testimonials</h2>
 
           <div className="overflow-x-auto">
-            <table className="table-auto mx-auto">
-              <tbody>
-                <tr className="flex flex-wrap">
-                  {testimonials.map((testimonial, index) => (
-                    <td key={index} className="w-full sm:w-1/3">
+            <table className="table-auto">
+              <tbody className="flex flex-wrap justify-center items-center">
+                {testimonials.map((testimonial, index) => (
+                  <tr key={index} className="w-full sm:w-1/3">
+                    <td>
                       <div className="inline-block mx-4 my-4">
                         <TestimonialCard
                           name={testimonial.name}
@@ -118,45 +118,66 @@ export default function Home() {
                         />
                       </div>
                     </td>
-                  ))}
-                </tr>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </section>
 
 
+
+
+
+
+
+
         <section className="px-6 py-8 text-center bg-blue-50">
-          <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-8">Contact us</h2>
-          <div className="flex flex-row justify-center items-center">
-            <div className="flex flex-col items-center mb-4 md:mb-0 md:mr-4">
-              <div className="rounded-full bg-white p-3 shadow-md mb-8">
-                <a href="mailto:info@citydrivingschool.uk"><FontAwesomeIcon icon={faEnvelope} className="text-blue-600 text-3xl" /></a>
-              </div>
-              <div className="rounded-full bg-white p-3 shadow-md mb-8">
-                <a href="tel:07879391886"><FontAwesomeIcon icon={faPhone} className="text-blue-600 text-3xl" /></a>
-              </div>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-white shadow-md p-4 rounded-lg mb-8">
-                <p className="text-xl"><a href="mailto:info@citydrivingschool.uk">info@citydrivingschool.uk</a></p>
-              </div>
-              <div className="bg-white shadow-md p-4 rounded-lg mb-8">
-                <p className="text-xl"><a href="tel:07879391886">07879 391886</a></p>
-              </div>
+          <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-8 md:mt-10 ">Contact us</h2>
+          <div className="flex justify-center items-center md:mb-10">
+            <div className="table-container">
+              <table className="table-fixed">
+                <tbody>
+                  <tr>
+                    <td className="w-16 pr-4">
+                      <div className="rounded-full bg-white p-3 shadow-md mb-8">
+                        <a href="mailto:info@citydrivingschool.uk" aria-label="Our email address">
+                          <FontAwesomeIcon icon={faEnvelope} className="text-blue-600 text-3xl" />
+                        </a>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="bg-white shadow-md p-3 rounded-lg mb-8">
+                        <p className="text-xl"><a href="mailto:info@citydrivingschool.uk">info@citydrivingschool.uk</a></p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="w-16 pr-4">
+                      <div className="rounded-full bg-white p-3 shadow-md mb-8">
+                        <a href="tel:07879391886" aria-label="Our phone numbe">
+                          <FontAwesomeIcon icon={faPhone} className="text-blue-600 text-3xl" />
+                        </a>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="bg-white shadow-md rounded-lg mb-8 p-2">
+                        <p className="text-xl"><a href="tel:07879391886">07879 391886</a></p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
 
+        <FloatingWhatsapp />
 
-
+        <Footer />
 
 
       </main>
-
-
-
-      <Footer />
     </div>
   )
 }
