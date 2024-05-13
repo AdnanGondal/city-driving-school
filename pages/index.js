@@ -106,24 +106,19 @@ export default function Home() {
           <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-4">Testimonials</h2>
 
           <div className="overflow-x-auto">
-            <table className="table-auto">
-              <tbody className="flex flex-wrap justify-center items-center">
-                {testimonials.map((testimonial, index) => (
-                  <tr key={index} className="w-full sm:w-1/3">
-                    <td>
-                      <div className="inline-block mx-4 my-4">
-                        <TestimonialCard
-                          name={testimonial.name}
-                          text={testimonial.text}
-                        />
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="flex justify-center">
+                  <TestimonialCard
+                    name={testimonial.name}
+                    text={testimonial.text}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
+
 
 
 
