@@ -57,7 +57,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="p-4 md:p-20 text-center md:pb-5">
+        <section id="about" className="p-4 md:p-20 text-center md:pb-5">
           <h2 className="text-2xl text-blue-600 font-bold md:text-3xl md:py-10">Why Choose City Driving School?</h2>
           <ul className="text-gray-600 space-y-2">
             <li className="flex items-center justify-center pb-3">
@@ -75,7 +75,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <section className="flex justify-center items-center h-full md:h-screen">
+        <section id="courses" className="flex justify-center items-center h-full md:h-screen">
           <div className="rounded-lg shadow-lg p-8 max-w-4xl bg-blue-50">
             <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-6">Our Driving Courses</h2>
 
@@ -102,8 +102,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-6 py-4 text-center mt-8 h-full md:h-screen flex flex-col justify-center items-center">
-          <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-4">Testimonials</h2>
+        <section id="testimonials" className="px-6 py-4 text-center mt-8 h-full md:h-screen flex flex-col justify-center items-center">
+          <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-4 md:mb-12">Testimonials</h2>
 
           <div className="overflow-x-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -121,13 +121,7 @@ export default function Home() {
 
 
 
-
-
-
-
-
-
-        <section className="px-6 py-8 text-center bg-blue-50">
+        <section id="contact" className="px-6 py-8 text-center bg-blue-50">
           <h2 className="text-2xl md:text-3xl text-blue-600 font-bold mb-8 md:mt-10 ">Contact us</h2>
           <div className="flex justify-center items-center md:mb-10">
             <div className="table-container">
