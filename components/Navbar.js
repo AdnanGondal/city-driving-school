@@ -18,7 +18,6 @@ const Navbar = () => {
         <nav className="py-4">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
-                    {/* Logo */}
                     <div className="flex items-center">
                         <Link href="/">
                             <div className="text-2xl font-semibold cursor-pointer mr-6">
@@ -31,15 +30,12 @@ const Navbar = () => {
                             </div>
                         </Link>
                     </div>
-                    {/* Links */}
                     <div className="hidden md:flex items-center space-x-4">
-                        {/* Add your links here */}
                         <NavItem href="#about">About</NavItem>
                         <NavItem href="#courses">Courses</NavItem>
                         <NavItem href="#testimonials">Testimonials</NavItem>
                         <NavItem href="#contact">Contact Us</NavItem>
                     </div>
-                    {/* Burger icon for mobile */}
                     <div className="flex md:hidden">
                         <button
                             onClick={toggleMenu}
@@ -50,11 +46,8 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            {/* Mobile menu */}
             <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
-                {/* Mobile links */}
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    {/* Add your mobile links here */}
                     <NavItemMobile setIsOpen={setIsOpen} href="#about">About</NavItemMobile>
                     <NavItemMobile setIsOpen={setIsOpen} href="#courses">Courses</NavItemMobile>
                     <NavItemMobile setIsOpen={setIsOpen} href="#testimonials">Testimonials</NavItemMobile>
@@ -68,7 +61,7 @@ const Navbar = () => {
 
 const NavItem = ({ href, children }) => (
     <Link href={href}>
-        <div className="text-blue-600 hover:text-red-600 px-3 py-2 rounded-md text-xl font-medium">
+        <div className="text-blue-600 hover:text-red-600 px-3 py-2 rounded-md md:text-l font-semibold">
             {children}
         </div>
     </Link>
@@ -78,7 +71,7 @@ const NavItem = ({ href, children }) => (
 const NavItemMobile = ({ href, children, setIsOpen }) => (
     <Link href={href}>
         <div
-            onClick={() => setIsOpen(false)} // Close menu on mobile click
+            onClick={() => setIsOpen(false)}
             className="text-blue-600 block hover:text-red-600 px-3 py-2 rounded-md text-base font-medium"
         >
             {children}
