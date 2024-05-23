@@ -2,6 +2,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/46648482-644c-4c80-bafb-872057e51b6b/deploy-status)](https://app.netlify.com/sites/next-dev-starter/deploys)
 
+<img width="720" alt="image" src="https://github.com/AdnanGondal/city-driving-school/assets/43793942/aba9fce2-4d6b-4fdf-9072-b0743ca9ccea">
+
 
 ## Table of Contents:
 
