@@ -49,7 +49,7 @@ export default function Home() {
 
           <div className="w-full md:w-1/2 text-center md:text-left p-2 pb-10">
             <h1 className="text-3xl font-bold text-blue-600 mb-4">Welcome to City Driving School</h1>
-            <p className='text-gray-600 md:text-l md:mt-10 font-semibold pr-10'>
+            <p className='text-gray-600 text-center md:text-left md:text-l md:mt-10 font-semibold md:pr-10 sm:pr-0'>
               City Driving School, based in South London, offers top-quality, affordable driving lessons to students of all levels.
               From basic driving lessons for beginners to advanced road training for skilled drivers, we provide a comfortable,
               safe, and effective learning experience.
