@@ -39,7 +39,7 @@ const Navbar = () => {
                     <div className="flex md:hidden">
                         <button
                             onClick={toggleMenu}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-blue-600 focus:outline-none"
+                            className="inline-flex items-center justify-center p-2 rounded-md text-brand-blue focus:outline-none"
                         >
                             <FontAwesomeIcon icon={faBars} className="text-3xl" />
                         </button>
@@ -61,7 +61,7 @@ const Navbar = () => {
 
 const NavItem = ({ href, children }) => (
     <Link href={href}>
-        <div className="text-blue-600 hover:text-red-600 px-3 py-2 rounded-md md:text-l font-semibold">
+        <div className="text-brand-blue hover:text-brand-red-600 px-3 py-2 rounded-md md:text-l font-semibold">
             {children}
         </div>
     </Link>
@@ -72,7 +72,7 @@ const NavItemMobile = ({ href, children, setIsOpen }) => (
     <Link href={href}>
         <div
             onClick={() => setIsOpen(false)}
-            className="text-blue-600 block hover:text-red-600 px-3 py-2 rounded-md text-base font-medium"
+            className="text-brand-blue block hover:text-brand-red-600 px-3 py-2 rounded-md text-base font-medium"
         >
             {children}
         </div>
