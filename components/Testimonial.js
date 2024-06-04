@@ -12,8 +12,8 @@ export default function TestimonialCard({ name, text, icon }) {
                 <FontAwesomeIcon className="text-xl " icon={faQuoteLeft} />
             </div>
             <div className="h-64  flex flex-col items-center">
-                <p className="text-gray-600 overflow-y-auto">{text}</p>
-                <p className="text-xl text-red-500 font-semibold mt-4 ">{name}</p>
+                <p className="text-brand-gray overflow-y-auto">{text}</p>
+                <p className="text-xl text-brand-red font-semibold mt-4 ">{name}</p>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-blue-600 text-white py-8">
+    <footer className="bg-brand-blue text-white py-8">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Logo and company name on the left */}
